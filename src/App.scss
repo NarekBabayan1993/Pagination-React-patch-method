@@ -1,0 +1,176 @@
+.flex {
+	display: flex;
+	&-col {
+		flex-direction: column;
+	}
+	&-row {
+		flex-direction: row;
+	}
+	&-equal {
+		flex-grow: 1;
+		flex-shrink: 1;
+		flex-basis: 50%;
+	}
+	&-justify {
+		&-center {
+			justify-content: center;
+		}
+		&-between {
+			justify-content: space-between;
+		}
+		&-around {
+			justify-content: space-around;
+		}
+		&-start {
+			justify-content: flex-start;
+		}
+		&-end {
+			justify-content: flex-end;
+		}
+	}
+	&-align {
+		&-center {
+			align-items: center;
+		}
+		&-stretch {
+			align-items: stretch;
+		}
+		&-baseline {
+			align-items: baseline;
+		}
+		&-start {
+			align-items: flex-start;
+		}
+		&-end {
+			align-items: flex-end;
+		}
+	}
+}
+
+.header {
+	opacity: 5;
+	&__navigation {
+		&__list {
+			list-style-type: none;
+		}
+		&__element > &__button {
+			background-color: teal;
+			color: yellowgreen;
+			font-size: 16px;
+		}
+		&__element-active > &__button {
+			background-color: yellowgreen;
+			color: white;
+		}
+		&__element:not(&__element-active) > &__button:hover {
+			background-color: white;
+			color: black;
+			cursor: pointer;
+		}
+		&__element + &__element {
+			margin-left: 10px;
+		}
+		&__nav__button {
+			width: 0px;
+			height: 0px;
+			border-top: 40px solid transparent;
+			border-bottom: 40px solid transparent;
+			background: none;
+			&__prev {
+				border-right: 80px solid #cd5c5c; 
+				margin-right: 10px;
+			}
+			&__next {
+				border-left: 80px solid #cd5c5c;
+				margin-left: 10px;
+			}
+			&__disabled {
+				cursor: not-allowed;
+				opacity: 0.5;
+			}
+			&:not(&__disabled):hover {
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+.form {
+	background-image: linear-gradient(teal,#1D1D29);
+	width: 400px;
+	border-radius: 3%;
+}
+
+label > input {
+	font-size: medium;
+	padding: 5px;
+	background-color: #C1FCE4
+}
+
+.form-row-buttons > input {
+	width: 23%;
+	height: 30px;
+	border-radius: 5%;
+	background-color: yellowgreen;
+}
+
+.form-row-buttons > input:hover {
+	width: 23%;
+	height: 30px;
+	border-radius: 5%;
+	background-color: green;
+	color: white
+}
+
+
+.form-row-buttons > input + input {
+	background-color: #93240D;
+	color: white
+}
+
+.form-row-buttons>input+input:hover {
+	background-color: red;
+	color: white
+}
+
+
+
+
+$spaces: (2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 25, 50, 70, 90, 25);
+@each $space in $spaces {
+	@each $prop, $abbrev in (margin: m, padding: p) {
+		@each $side, $infix in (top: t, bottom: b, left: l, right: r) {
+			.#{$abbrev}#{$infix}-#{$space} {
+				#{$prop}-#{$side}: #{$space}px;
+			}
+		}
+	}
+}
+
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.3);
+	&-body {
+		min-height: 320px;
+		height: auto;
+		width: 400px;
+		background-color: teal;
+		border-radius: 10px;
+		padding: 20px;
+		button {
+			padding: 15px 25px;
+		}
+	}
+	&-2 {
+		background-color: red;
+		&-body {
+			min-height: 520px;
+			height: auto;
+			width: 600px;
+		}
+	}
+}

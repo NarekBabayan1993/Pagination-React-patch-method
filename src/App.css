@@ -1,0 +1,17 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	background-image: linear-gradient(to left, #221e2c, #201e2b, #1e1e2b, #1d1e2a, #1b1e29, #222530, #282c38, #2f3340, #414353, #545467, #68657b, #7d7790);;;
+	height: 100%;
+}
+
+#root, .App {
+	height: 100%;
+	width: 100%;
+}
+
